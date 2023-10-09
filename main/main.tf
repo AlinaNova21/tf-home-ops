@@ -24,7 +24,7 @@ locals {
   github_actions_variables = {
     "TF_CLOUD_ORGANIZATION": "Whoverse"
     "TF_WORKSPACE": "tf-home-ops"
-    "CONFIG_DIRECTORY": "main"
+    "CONFIG_DIRECTORY": "./"
   }
 }
 resource "github_actions_variable" "tf_workspace" {

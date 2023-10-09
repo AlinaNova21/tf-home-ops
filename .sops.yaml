@@ -3,4 +3,4 @@ creation_rules:
   - path_regex: main/.*\.sops\.ya?ml
     key_groups:
       - age:
-          - age1px0nj25e2md00j6ancf0u5e5hyjmuljm7jj7a4vruj92xnm5rfsspjkflc
+          - age1xw4w2swj38mj7msd3cdg74ealk2rdf4cfamamjavqdt0tghhqfxq7t44fr
