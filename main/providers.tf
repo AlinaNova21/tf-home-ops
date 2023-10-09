@@ -11,5 +11,7 @@ terraform {
   }
 }
 
-provider "github" {}
+provider "github" {
+  owner = "alinanova21"
+}
 provider "sops" {}
