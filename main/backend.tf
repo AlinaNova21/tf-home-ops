@@ -3,7 +3,7 @@ terraform {
     organization = "Whoverse"
 
     workspaces {
-      name = "whoverse"
+      name = "tf-home-ops"
     }
   }
 }
