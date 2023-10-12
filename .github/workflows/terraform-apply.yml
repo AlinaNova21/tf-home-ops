@@ -8,7 +8,6 @@ on:
 env:
   TF_CLOUD_ORGANIZATION: "${{ vars.TF_CLOUD_ORGANIZATION }}"
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
-  TF_WORKSPACES: "${{ vars.TF_WORKSPACES }}"
   CONFIG_DIRECTORY: "${{ vars.CONFIG_DIRECTORY }}"
 
 jobs:
@@ -16,7 +15,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        workspace: ${{ fromJSON(env.TF_WORKSPACES) }}
+        workspace: ${{ fromJSON(vars.TF_WORKSPACES) }}
     if: github.repository != 'hashicorp-education/learn-terraform-github-actions'
     name: "Terraform Apply"
     runs-on: ubuntu-latest
