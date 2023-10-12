@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        workspace: ${{ fromJSON(env.workspaces) }}
+        workspace: ${{ fromJSON(env.TF_WORKSPACES) }}
     if: github.repository != 'hashicorp-education/learn-terraform-github-actions'
     name: "Terraform Plan"
     runs-on: ubuntu-latest
