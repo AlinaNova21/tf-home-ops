@@ -9,5 +9,6 @@ module "bsky" {
     "xenodalizard" = "did:plc:egv2hxrryzkvhwoj7whpwv7x"
     "zombr1fic"    = "did:plc:ymgtutthihoqbitwhxdmuvp3"
     "zomzom"       = "did:plc:nz5mf6v7pjmwaevtyfswunlb"
+    "voidsystem"   = "did:plc:yfaqqgc6sbuvhlyq4djfqveh"
   }
 }
