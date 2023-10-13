@@ -70,17 +70,6 @@ resource "tfe_oauth_client" "whoverse" {
   service_provider = "github"
 }
 
-# resource "tfe_variable_set" "common" {
-#   name         = "Common Variables"
-#   organization = tfe_organization.whoverse.name
-# }
-
-# resource "tfe_workspace_variable_set" "whoverse" {
-#   for_each        = local.workspaces
-#   variable_set_id = tfe_variable_set.common.id
-#   workspace_id    = tfe_workspace.whoverse[each.key].id
-# }
-
 resource "tfe_variable" "whoverse" {
   for_each     = local.flat_variables
   key          = local.variables[each.value.index].key

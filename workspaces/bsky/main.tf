@@ -1,4 +1,4 @@
-locals{
+locals {
   cf_zone = "0bdad635ee5d84d61f76d40ffe5a79d6"
   users = {
     "eclipse"      = "did:plc:huhuvspzrv3ohy4hxa344pae"
