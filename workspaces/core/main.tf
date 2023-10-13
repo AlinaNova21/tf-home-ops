@@ -57,7 +57,7 @@ resource "tfe_workspace" "whoverse" {
   terraform_version     = local.terraform_version
   vcs_repo {
     identifier     = github_repository.tf_home_ops.full_name
-    oauth_token_id = tfe_oauth_client.whoverse.id
+    oauth_token_id = tfe_oauth_client.whoverse.oauth_token_id
   }
 }
 
