@@ -6,7 +6,7 @@ locals {
     TF_LOCAL_WORKSPACES = jsonencode(local.local_workspaces)
   }
   github_actions_secrets = {
-    # "TF_API_TOKEN"                  = data.sops_file.secrets.data.terraform_token
+    "TF_API_TOKEN"           = data.sops_file.secrets.data.terraform_token
     "SOPS_AGE_KEY"           = data.sops_file.secrets.data.sops_age_key
     "TS_OAUTH_CLIENT_ID"     = data.sops_file.secrets.data.ts_oauth_client_id
     "TS_OAUTH_CLIENT_SECRET" = data.sops_file.secrets.data.ts_oauth_client_secret
