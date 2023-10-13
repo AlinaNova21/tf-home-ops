@@ -12,7 +12,7 @@ terraform {
 }
 
 provider "prowlarr" {
-  api_key = data.sops_file.secrets.prowlarr_key
+  api_key = data.sops_file.secrets.data.prowlarr_key
   url     = "http://media/prowlarr"
 }
 provider "sops" {}
