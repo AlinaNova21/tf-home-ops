@@ -1,23 +1,37 @@
 locals {
   terraform_version = "1.5.7"
-  workspaces        = ["core", "bsky"]
+  workspaces        = ["core", "bsky", "tailscale"]
+  local_workspaces  = ["arr"]
   variables = [
     {
       workspaces = ["core"]
-      key        = "SOPS_AGE_KEY",
+      key        = "SOPS_AGE_KEY"
       value      = data.sops_file.secrets.data.sops_age_key
       sensitive  = true
     },
     {
       workspaces = ["bsky"]
-      key        = "CLOUDFLARE_EMAIL",
+      key        = "CLOUDFLARE_EMAIL"
       value      = data.sops_file.secrets.data.cloudflare_email
       sensitive  = false
     },
     {
       workspaces = ["bsky"]
-      key        = "CLOUDFLARE_API_TOKEN",
+      key        = "CLOUDFLARE_API_TOKEN"
       value      = data.sops_file.secrets.data.cloudflare_api_token
+      sensitive  = true
+    },
+    {
+      workspaces = ["tailscale"]
+      key        = "TAILSCALE_OAUTH_CLIENT_ID"
+      value      = data.sops_file.secrets.data.ts_oauth_client_id
+      sensitive  = false
+    },
+
+    {
+      workspaces = ["tailscale"]
+      key        = "TAILSCALE_OAUTH_CLIENT_SECRET"
+      value      = data.sops_file.secrets.data.ts_oauth_client_secret
       sensitive  = true
     },
   ]
@@ -59,6 +73,14 @@ resource "tfe_workspace" "whoverse" {
     identifier     = github_repository.tf_home_ops.full_name
     oauth_token_id = tfe_oauth_client.whoverse.oauth_token_id
   }
+}
+
+resource "tfe_workspace" "whoverse_local" {
+  for_each       = toset(local.local_workspaces)
+  name           = each.value
+  organization   = tfe_organization.whoverse.name
+  tag_names      = ["gitops", "local"]
+  execution_mode = "local"
 }
 
 resource "tfe_oauth_client" "whoverse" {
