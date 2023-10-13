@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+env:
+  SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY }}
+
 jobs:
   terraform:
     strategy:
