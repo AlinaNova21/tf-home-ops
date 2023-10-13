@@ -55,6 +55,19 @@ resource "tfe_workspace" "whoverse" {
   file_triggers_enabled = false
   working_directory     = "workspaces/${each.value}/"
   terraform_version     = local.terraform_version
+  vcs_repo {
+    identifier     = github_repository.tf_home_ops.full_name
+    oauth_token_id = tfe_oauth_client.whoverse.id
+  }
+}
+
+resource "tfe_oauth_client" "whoverse" {
+  name             = "github-oauth-client"
+  organization     = tfe_organization.whoverse.name
+  api_url          = "https://api.github.com"
+  http_url         = "https://github.com"
+  oauth_token      = data.sops_file.secrets.data.github_token
+  service_provider = "github"
 }
 
 # resource "tfe_variable_set" "common" {
