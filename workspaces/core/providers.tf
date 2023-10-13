@@ -20,5 +20,6 @@ provider "tfe" {
 }
 provider "github" {
   owner = "alinanova21"
+  token = data.sops_file.secrets.data.github_token
 }
 provider "sops" {}

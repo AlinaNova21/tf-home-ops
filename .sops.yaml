@@ -1,6 +1,6 @@
 ---
 creation_rules:
-  - path_regex: main/.*\.sops\.ya?ml
+  - path_regex: workspaces/*/.*\.sops\.ya?ml
     key_groups:
       - age:
-          - age1xw4w2swj38mj7msd3cdg74ealk2rdf4cfamamjavqdt0tghhqfxq7t44fr
+          - age1n7q5q5z3xkufhlysrt3mrrxnyhqa3myseu7pyc47hwf5l67qssqse2jdh5

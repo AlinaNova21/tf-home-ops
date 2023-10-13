@@ -8,12 +8,6 @@ locals {
       sensitive  = true
     },
     {
-      workspaces = ["core"]
-      key        = "GITHUB_TOKEN",
-      value      = data.sops_file.secrets.data.github_token
-      sensitive  = true
-    },
-    {
       workspaces = ["bsky"]
       key        = "CLOUDFLARE_EMAIL",
       value      = data.sops_file.secrets.data.cloudflare_email
