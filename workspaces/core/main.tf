@@ -1,5 +1,6 @@
 locals {
-  workspaces = ["core", "bsky"]
+  terraform_version = "1.5.7"
+  workspaces        = ["core", "bsky"]
   variables = [
     {
       workspaces = ["core"]
@@ -24,13 +25,13 @@ locals {
     for v in flatten([
       for k, v in local.variables : [
         for w in v.workspaces : {
-          key = "${v.key}_${w}",
-          index = k
+          key       = "${v.key}_${w}",
+          index     = k
           workspace = w
         }
       ]
-    ]) : v.key => {
-      index = v.index
+      ]) : v.key => {
+      index     = v.index
       workspace = v.workspace
     }
   }
@@ -53,6 +54,7 @@ resource "tfe_workspace" "whoverse" {
   auto_apply            = true
   file_triggers_enabled = false
   working_directory     = "workspaces/${each.value}/"
+  terraform_version     = local.terraform_version
 }
 
 # resource "tfe_variable_set" "common" {
