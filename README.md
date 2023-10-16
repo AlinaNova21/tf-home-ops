@@ -31,6 +31,10 @@ Terraform Cloud.
 
 This module manages domain verification dns records for BlueSky
 
+### Arr
+
+Manages my local *Arr instances
+
 ## Bootstrap
 
 ```shell

@@ -12,7 +12,12 @@ variable "api_key" {
   sensitive = true
 }
 
-variable "discord_web_hook_url" {
+variable "discord_downloads_web_hook_url" {
+  type      = string
+  sensitive = true
+}
+
+variable "discord_monitoring_web_hook_url" {
   type      = string
   sensitive = true
 }
