@@ -11,7 +11,7 @@ resource "prowlarr_notification_discord" "monitoring" {
   on_health_issue       = true
   on_application_update = true
   on_health_restored    = true
-  on_grab               = true
+  on_grab               = false
 
   include_health_warnings = true
   name                    = "Discord #monitoring"
