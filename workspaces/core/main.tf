@@ -34,6 +34,12 @@ locals {
       value      = data.sops_file.secrets.data.ts_oauth_client_secret
       sensitive  = true
     },
+    {
+      workspaces = ["tailscale"]
+      key        = "DIGITALOCEAN_TOKEN"
+      value      = data.sops_file.secrets.data.digitalocean_token
+      sensitive  = true
+    },
   ]
   flat_variables = {
     for v in flatten([
