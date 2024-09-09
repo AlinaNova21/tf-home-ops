@@ -20,6 +20,22 @@ resource "digitalocean_firewall" "digitalocean1" {
     port_range       = "32400"
     source_addresses = ["0.0.0.0/0", "::/0"]
   }
+
+
+  outbound_rule {
+    protocol              = "tcp"
+    destination_addresses = ["0.0.0.0/0", "::/0"]
+  }
+
+  outbound_rule {
+    protocol              = "udp"
+    destination_addresses = ["0.0.0.0/0", "::/0"]
+  }
+
+  outbound_rule {
+    protocol              = "icmp"
+    destination_addresses = ["0.0.0.0/0", "::/0"]
+  }
 }
 
 import {
