@@ -10,6 +10,17 @@ resource "digitalocean_droplet" "digitalocean1" {
     "tailscale-exit-node",
   ]
 }
+resource "digitalocean_firewall" "digitalocean1" {
+  name = "plex"
+
+  droplet_ids = [digitalocean_droplet.digitalocean1.id]
+
+  inbound_rule {
+    protocol         = "tcp"
+    port_range       = "32400"
+    source_addresses = ["0.0.0.0/0", "::/0"]
+  }
+}
 
 import {
   to = digitalocean_droplet.digitalocean1
