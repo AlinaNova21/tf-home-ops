@@ -8,6 +8,7 @@ locals {
     "xenodalizard" = "did:plc:egv2hxrryzkvhwoj7whpwv7x"
     "zombr1fic"    = "did:plc:ymgtutthihoqbitwhxdmuvp3"
     "zomzom"       = "did:plc:nz5mf6v7pjmwaevtyfswunlb"
+    "starsystem"   = "did:plc:yfaqqgc6sbuvhlyq4djfqveh"
     "voidsystem"   = "did:plc:yfaqqgc6sbuvhlyq4djfqveh"
   }
 }
